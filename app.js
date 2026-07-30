@@ -1580,7 +1580,12 @@ function renderAdminDashboard(container) {
     if (token) localStorage.setItem('tiakur_gh_token', token);
 
     if (!owner || !repo || !token) {
-      alert("⚠️ Konfigurasi GitHub tidak lengkap! Perubahan telah disimpan sementara di memori browser Anda, namun data TIDAK dapat dikirim secara otomatis ke GitHub. \n\nSilakan unduh file backup JSON menggunakan tombol 'Unduh Backup JSON' untuk diunggah secara manual, atau lengkapi konfigurasi GitHub Anda di tab 'Integrasi & Simpan'.");
+      alert("⚠️ Konfigurasi GitHub tidak lengkap!\n\nPerubahan telah disimpan sementara di memori browser Anda, namun data TIDAK dapat dikirim ke GitHub.\n\nSistem akan mengarahkan Anda ke tab 'Integrasi & Simpan' untuk melengkapi data token GitHub Anda.");
+      // Auto switch to integration tab
+      const integrationLink = document.querySelector('.admin-nav-link[data-tab="tab-integration"]');
+      if (integrationLink) {
+        integrationLink.click();
+      }
       return;
     }
 
@@ -1738,9 +1743,23 @@ function populateAdminForm() {
   expenseContainer.innerHTML = "";
   appData.transparansi_anggaran.belanja.forEach(item => addBudgetRow('expense', item));
 
-  // Populate GitHub settings from localStorage
-  document.getElementById('gh-owner').value = localStorage.getItem('tiakur_gh_owner') || "";
-  document.getElementById('gh-repo').value = localStorage.getItem('tiakur_gh_repo') || "";
+  // Populate GitHub settings from localStorage, or automatically detect from current URL (resilient to browser cache clear)
+  let detectedOwner = localStorage.getItem('tiakur_gh_owner') || "";
+  let detectedRepo = localStorage.getItem('tiakur_gh_repo') || "";
+  
+  if (window.location.hostname.endsWith('.github.io')) {
+    const parts = window.location.hostname.split('.');
+    if (!detectedOwner && parts.length > 0) {
+      detectedOwner = parts[0]; // e.g. "website-desa-cinta-statistik"
+    }
+    const pathParts = window.location.pathname.split('/').filter(p => p);
+    if (!detectedRepo && pathParts.length > 0) {
+      detectedRepo = pathParts[0]; // e.g. "Kelurahan-Tiakur"
+    }
+  }
+
+  document.getElementById('gh-owner').value = detectedOwner;
+  document.getElementById('gh-repo').value = detectedRepo;
   document.getElementById('gh-branch').value = localStorage.getItem('tiakur_gh_branch') || "main";
   document.getElementById('gh-token').value = localStorage.getItem('tiakur_gh_token') || "";
 }
