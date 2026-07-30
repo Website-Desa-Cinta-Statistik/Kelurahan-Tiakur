@@ -1546,12 +1546,34 @@ function renderAdminDashboard(container) {
     appData = updatedData;
 
     // Check if GitHub Configuration is set
-    const owner = document.getElementById('gh-owner').value.trim();
-    const repo = document.getElementById('gh-repo').value.trim();
+    let owner = document.getElementById('gh-owner').value.trim();
+    let repo = document.getElementById('gh-repo').value.trim();
     const branch = document.getElementById('gh-branch').value.trim() || 'main';
     const token = document.getElementById('gh-token').value.trim();
 
-    // Save token configuration to localStorage for convenience
+    // Automatically parse if user pasted the full URL instead of just the names
+    if (owner.includes('github.com')) {
+      const cleanUrl = owner.replace('https://', '').replace('http://', '');
+      const parts = cleanUrl.split('/');
+      if (parts.length >= 2) {
+        owner = parts[1];
+      }
+    }
+    if (repo.includes('github.com')) {
+      const cleanUrl = repo.replace('https://', '').replace('http://', '');
+      const parts = cleanUrl.split('/');
+      if (parts.length >= 3) {
+        repo = parts[2].replace('.git', '');
+      } else if (parts.length >= 2) {
+        repo = parts[1].replace('.git', '');
+      }
+    }
+
+    // Clean any trailing slashes or spaces
+    owner = owner.replace(/\/+$/, "");
+    repo = repo.replace(/\/+$/, "");
+
+    // Save cleaned token configuration to localStorage for convenience
     localStorage.setItem('tiakur_gh_owner', owner);
     localStorage.setItem('tiakur_gh_repo', repo);
     localStorage.setItem('tiakur_gh_branch', branch);
@@ -1584,8 +1606,21 @@ function renderAdminDashboard(container) {
       if (getResponse.ok) {
         const metadata = await getResponse.json();
         sha = metadata.sha;
-      } else if (getResponse.status !== 404) {
-        throw new Error(`Gagal membaca repositori. Status: ${getResponse.status}`);
+      } else if (getResponse.status === 404) {
+        // If 404, verify if the repository itself is not found or it's just the file
+        const repoCheck = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+          headers: {
+            'Authorization': `token ${token}`
+          }
+        });
+        if (!repoCheck.ok) {
+          throw new Error(`Repositori tidak ditemukan di GitHub.\n\nDetail:\n1. Pemilik: "${owner}"\n2. Repositori: "${repo}"\n\nSilakan pastikan Anda tidak memasukkan spasi di ujung teks, tidak memasukkan link/URL penuh, dan penulisan nama repositori sudah 100% sama dengan di GitHub.`);
+        } else {
+          // Repo exists, file doesn't exist yet on this branch
+          sha = "";
+        }
+      } else {
+        throw new Error(`Gagal membaca file dari repositori. Status HTTP: ${getResponse.status}`);
       }
 
       // Step 2: Push/PUT the updated content
@@ -1613,7 +1648,7 @@ function renderAdminDashboard(container) {
 
     } catch (err) {
       console.error(err);
-      alert(`⚠️ Terjadi kesalahan saat menyimpan ke GitHub:\n${err.message}\n\nPerubahan tetap tersimpan secara lokal. Anda bisa mengunduh file JSON backup untuk diunggah manual.`);
+      alert(`⚠️ Terjadi kesalahan saat menyimpan ke GitHub:\n\n${err.message}\n\nPerubahan tetap tersimpan di memori lokal browser Anda sementara.`);
     } finally {
       saveBtn.disabled = false;
       saveBtn.textContent = originalText;
