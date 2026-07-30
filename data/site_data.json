@@ -45,10 +45,10 @@
   },
   "statistik": {
     "total_penduduk": 5000,
-    "total_keluarga": 1000,
+    "total_keluarga": 1100,
     "jenis_kelamin": {
-      "Laki-laki": 2000,
-      "Perempuan": 2000
+      "Laki-laki": 2450,
+      "Perempuan": 2550
     },
     "pekerjaan": {
       "PNS / TNI / Polri": 520,
