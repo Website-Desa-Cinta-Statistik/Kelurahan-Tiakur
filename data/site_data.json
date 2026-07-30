@@ -44,11 +44,11 @@
     "belanja": []
   },
   "statistik": {
-    "total_penduduk": 4825,
-    "total_keluarga": 1240,
+    "total_penduduk": 4000,
+    "total_keluarga": 1000,
     "jenis_kelamin": {
-      "Laki-laki": 2450,
-      "Perempuan": 2375
+      "Laki-laki": 2000,
+      "Perempuan": 2000
     },
     "pekerjaan": {
       "PNS / TNI / Polri": 520,
@@ -66,10 +66,10 @@
       "Buddha": 15
     },
     "status_perkawinan": {
-      "Belum Kawin": 1980,
-      "Kawin": 2560,
-      "Cerai Hidup": 185,
-      "Cerai Mati": 100
+      "Belum Kawin": 1000,
+      "Kawin": 2000,
+      "Cerai Hidup": 500,
+      "Cerai Mati": 500
     },
     "fasilitas_pendidikan": {
       "Taman Kanak-Kanak (TK)": 4,
