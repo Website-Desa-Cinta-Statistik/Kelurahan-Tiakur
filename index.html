@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Resmi Kelurahan Tiakur - Kabupaten Maluku Barat Daya</title>
+  
+  <!-- SEO & Optimization Meta Tags -->
+  <meta name="description" content="Portal resmi Kelurahan Tiakur, Kabupaten Maluku Barat Daya. Menyediakan profil desa, transparansi anggaran APBDes, dan data statistik kependudukan yang akurat dan transparan.">
+  <meta name="keywords" content="Kelurahan Tiakur, Tiakur, Maluku Barat Daya, MBD, APBDes Tiakur, Statistik Tiakur, Kalwedo, Pulau Moa">
+  <meta name="author" content="Kelurahan Tiakur">
+  <meta name="robots" content="index, follow">
+  
+  <!-- OpenGraph Meta Tags for Social Sharing -->
+  <meta property="og:title" content="Portal Resmi Kelurahan Tiakur - Kabupaten Maluku Barat Daya">
+  <meta property="og:description" content="Informasi profil desa, transparansi APBDes, dan visualisasi statistik kependudukan Kelurahan Tiakur.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.svg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Chart.js CDN (High-performance, free charting library) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header" id="main-header">
+    <div class="nav-container">
+      <!-- Logo and Brand Title -->
+      <a href="#/beranda" class="logo-container" id="nav-logo">
+        <img src="assets/logo.svg" alt="Logo Kelurahan Tiakur" class="logo-img" width="48" height="48">
+        <div class="logo-text">
+          <span class="logo-title">KELURAHAN TIAKUR</span>
+          <span class="logo-subtitle">KECAMATAN MOA</span>
+        </div>
+      </a>
+      
+      <!-- Hamburger Menu Button for Mobile -->
+      <button class="menu-btn" id="menu-btn" aria-label="Toggle Menu Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#/beranda" class="nav-link active" id="nav-link-beranda">Beranda</a></li>
+          <li><a href="#/profil" class="nav-link" id="nav-link-profil">Profil Desa</a></li>
+          <li><a href="#/transparansi" class="nav-link" id="nav-link-transparansi">APBDes</a></li>
+          <li><a href="#/statistik" class="nav-link" id="nav-link-statistik">Statistik</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Viewport (SPA rendering target) -->
+  <main id="main-viewport" class="main-content">
+    <!-- Content injected dynamically by app.js -->
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 50vh; flex-direction: column; gap: 1rem; color: var(--primary-forest);">
+      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" style="animation: spin 1s linear infinite;">
+        <circle cx="25" cy="25" r="20" stroke-dasharray="80" stroke-dashoffset="20"></circle>
+      </svg>
+      <p style="font-family: var(--font-heading); font-weight: 600;">Memuat Halaman Portal Tiakur...</p>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <!-- Info Column -->
+      <div class="footer-info-col">
+        <div class="footer-info-logo">
+          <img src="assets/logo.svg" alt="Logo Tiakur" class="footer-logo-img" width="48" height="48">
+          <div>
+            <div class="footer-logo-title">KELURAHAN TIAKUR</div>
+            <div class="footer-logo-subtitle">Kab. Maluku Barat Daya</div>
+          </div>
+        </div>
+        <p class="footer-desc">Portal Layanan Publik dan Transparansi Statistik Kelurahan Tiakur, Kecamatan Moa, Kabupaten Maluku Barat Daya, Provinsi Maluku. Menjunjung tinggi persaudaraan dalam semangat Kalwedo.</p>
+      </div>
+
+      <!-- Links & Contact Column -->
+      <div class="footer-links-col">
+        <h3>Navigasi & Kontak</h3>
+        <ul class="footer-links" style="margin-bottom: 1.5rem;">
+          <li><a href="#/beranda" class="footer-link">Beranda Utama</a></li>
+          <li><a href="#/profil" class="footer-link">Profil & Aparatur</a></li>
+          <li><a href="#/transparansi" class="footer-link">Transparansi Anggaran</a></li>
+          <li><a href="#/statistik" class="footer-link">Statistik Kependudukan</a></li>
+        </ul>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Tiakur, Kecamatan Moa, Kab. Maluku Barat Daya.</span>
+          </li>
+          <li class="footer-contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>082398142237</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Map Column -->
+      <div class="footer-map-col">
+        <h3>Lokasi Kelurahan Tiakur</h3>
+        <div class="footer-map-container" style="border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm); border: 2px solid rgba(255,255,255,0.1); height: 180px;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125925.33796853689!2d127.56704576396482!3d-8.136894451079363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d3a3d53fb796fd1%3A0xda5b34ccbe554093!2sTiakur%2C%20Moa%2C%20Kabupaten%20Maluku%20Barat%20Daya%2C%20Maluku!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Area -->
+    <div class="footer-bottom">
+      <div>&copy; 2026 Pemerintah Kelurahan Tiakur. All Rights Reserved.</div>
+      <div class="footer-bottom-links">
+        <span>Falsafah Hidup Adat Kalwedo</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Inline Loading Spinner Style -->
+  <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

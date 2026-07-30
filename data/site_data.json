@@ -1,0 +1,93 @@
+{
+  "admin": {
+    "code_hash": "f1cd356cd58776dbecddaff28278b5df3ad2a90ac37759f696f9d5e6699cd082"
+  },
+  "profil": {
+    "sejarah": "Kelurahan Tiakur merupakan pusat administrasi dan ibukota dari Kabupaten Maluku Barat Daya, Provinsi Maluku. Resmi ditetapkan sebagai ibukota berdasarkan Undang-Undang Republik Indonesia Nomor 31 Tahun 2008, Tiakur berkembang pesat menjadi pusat roda pemerintahan, perekonomian, dan kebudayaan di wilayah perbatasan selatan Indonesia. Terletak di Pulau Moa, Kelurahan Tiakur menyajikan keindahan alam sabana yang khas dipadukan dengan pesisir pantai berpasir putih. Semangat kekeluargaan dan persaudaraan masyarakat Tiakur disatukan dalam falsafah hidup adat 'Kalwedo' yang menjunjung tinggi toleransi, kebersamaan, dan perdamaian.",
+    "visi": "Terwujudnya Kelurahan Tiakur sebagai pusat pelayanan publik yang prima, mandiri, unggul, dan berbudaya berbasis potensi lokal demi kesejahteraan masyarakat yang berkeadilan.",
+    "misi": [
+      "Meningkatkan kualitas pelayanan administrasi kelurahan secara cepat, akurat, transparan, dan berbasis teknologi informasi.",
+      "Mengembangkan ekonomi kreatif dan memberdayakan masyarakat kelurahan berbasis potensi kelautan, pertanian sabana, dan perdagangan lokal.",
+      "Membangun infrastruktur sarana dan prasarana lingkungan pemukiman yang sehat, tertata, dan ramah lingkungan.",
+      "Memelihara nilai-nilai adat, budaya, dan kerukunan beragama masyarakat dalam bingkai persaudaraan 'Kalwedo'."
+    ]
+  },
+  "aparatur": [
+    {
+      "id": 1,
+      "nama": "Ronal Marcus, S.STP",
+      "jabatan": "Lurah Tiakur",
+      "avatar_color": "#005f73"
+    },
+    {
+      "id": 2,
+      "nama": "Helena Frans, S.Sos",
+      "jabatan": "Sekretaris Kelurahan",
+      "avatar_color": "#0077b6"
+    },
+    {
+      "id": 3,
+      "nama": "Jhonny Letelay, A.Md",
+      "jabatan": "Kasi Pemerintahan & Ketertiban Umum",
+      "avatar_color": "#52b788"
+    },
+    {
+      "id": 4,
+      "nama": "Maria O. Keliwulan, S.E",
+      "jabatan": "Kasi Kesejahteraan Rakyat & Pelayanan",
+      "avatar_color": "#f5b041"
+    }
+  ],
+  "transparansi_anggaran": {
+    "tahun": "-",
+    "pendapatan": [],
+    "belanja": []
+  },
+  "statistik": {
+    "total_penduduk": 4825,
+    "total_keluarga": 1240,
+    "jenis_kelamin": {
+      "Laki-laki": 2450,
+      "Perempuan": 2375
+    },
+    "pekerjaan": {
+      "PNS / TNI / Polri": 520,
+      "Pegawai Swasta / BUMN": 680,
+      "Petani / Peternak": 1250,
+      "Nelayan": 840,
+      "Pedagang / Wiraswasta": 415,
+      "Belum / Tidak Bekerja": 1120
+    },
+    "agama": {
+      "Kristen Protestan": 3650,
+      "Katolik": 680,
+      "Islam": 450,
+      "Hindu": 30,
+      "Buddha": 15
+    },
+    "status_perkawinan": {
+      "Belum Kawin": 1980,
+      "Kawin": 2560,
+      "Cerai Hidup": 185,
+      "Cerai Mati": 100
+    },
+    "fasilitas_pendidikan": {
+      "Taman Kanak-Kanak (TK)": 4,
+      "Sekolah Dasar (SD)": 6,
+      "Sekolah Menengah Pertama (SMP)": 3,
+      "Sekolah Menengah Atas (SMA)": 2,
+      "Perguruan Tinggi": 1
+    },
+    "fasilitas_kesehatan": {
+      "Rumah Sakit": 1,
+      "Puskesmas": 1,
+      "Puskesmas Pembantu (Pustu)": 3,
+      "Poliklinik": 1,
+      "Poskesdes": 2,
+      "Polindes": 1,
+      "Tempat Praktik Dokter": 2,
+      "Tempat Praktik Bidan": 4,
+      "Apotek": 3
+    }
+  }
+}
